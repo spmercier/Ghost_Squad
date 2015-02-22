@@ -1,0 +1,48 @@
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="js/jquery-1.3.2.js" ></script>
+<script>
+    $(document).ready(function() {   
+            var sideslider = $('[data-toggle=collapse-side]');
+            var sel = sideslider.attr('data-target');
+            var sel2 = sideslider.attr('data-target-2');
+            sideslider.click(function(event){
+                $(sel).toggleClass('in');
+                $(sel2).toggleClass('out');
+            });
+        });
+</script>
+</head>
+<body>
+<div class="container-fluid page">
+    <header role="banner" class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button data-toggle="collapse-side" data-target=".side-collapse" data-target-2=".side-collapse-container" type="button" class="navbar-toggle pull-left"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        </div>
+        <div class="navbar-inverse side-collapse in">
+          <nav role="navigation" class="navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="main-screen.html">Home</a></li>
+              <li><a href="patrick-profile.html">Profile</a></li>
+              <li><a href="friends.html">Add Friends</a></li>
+              <li><a href="#sync">Sync</a></li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div class="container side-collapse-container">
+    <div class="row name text-center">
+    	<h1>About</h1>
+    </div>
+     <div class="row text-justify custyle points">
+        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+     </div>
+ </div>
+</div>
