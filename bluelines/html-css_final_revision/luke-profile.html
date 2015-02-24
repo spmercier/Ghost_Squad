@@ -1,0 +1,76 @@
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="js/jquery-1.3.2.js" ></script>
+<script>
+    $(document).ready(function() {   
+            var sideslider = $('[data-toggle=collapse-side]');
+            var sel = sideslider.attr('data-target');
+            var sel2 = sideslider.attr('data-target-2');
+            sideslider.click(function(event){
+                $(sel).toggleClass('in');
+                $(sel2).toggleClass('out');
+            });
+        });
+</script>
+</head>
+<body>
+<div class="container-fluid page">
+    <header role="banner" class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button data-toggle="collapse-side" data-target=".side-collapse" data-target-2=".side-collapse-container" type="button" class="navbar-toggle pull-left"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        </div>
+        <div class="navbar-inverse side-collapse in">
+          <nav role="navigation" class="navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="main-screen.html">Home</a></li>
+              <li><a href="patrick-profile.html">Profile</a></li>
+              <li><a href="friends.html">Add Friends</a></li>
+              <li><a href="#sync">Sync</a></li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div class="container side-collapse-container">
+    <div class="row text-center picture">
+    			<div style="margin-top: 40px;"><div class="profile-image"><img src="images/luke.jpg" /></div></div>
+    </div>
+    <div class="row name text-center">
+    	<h1>Luke Becker</h1>
+        <div class="btn green">Already Friends</div>
+    </div>
+     <div class="row text-center custyle points">
+            <table class="table table-striped custab">
+            <thead>
+            <div class="text-center"><h3>Tasks</h3></div>
+                <tr style="background: #474747; color: #fafafa;">
+                    <th>Date</th>
+                    <th>Task</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+                    <tr>
+                        <td>dd/mm/yy</td>
+                        <td>Run 1 Mile</td>
+                        <td>100pts</td>
+                    </tr>
+                    <tr>
+                        <td>dd/mm/yy</td>
+                        <td>Task</td>
+                        <td>200pts</td>
+                    </tr>
+                    <tr>
+                        <td>dd/mm/yy</td>
+                        <td>Task</td>
+                        <td>50pts</td>
+                    </tr>
+            </table>
+     </div>
+ </div>
+</div>
