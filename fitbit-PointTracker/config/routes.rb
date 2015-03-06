@@ -3,8 +3,12 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+<<<<<<< HEAD
   # root 'welcome#index'
 
+=======
+  root 'info#index'
+>>>>>>> Create-User-Code-Authenticate
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
