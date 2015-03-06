@@ -1,0 +1,22 @@
+{"activities"=>[],
+ "goals"=>
+  {"activeMinutes"=>30, "caloriesOut"=>2184, "distance"=>5, "steps"=>10000},
+ "summary"=>
+  {"activeScore"=>-1,
+   "activityCalories"=>0,
+   "caloriesBMR"=>1188,
+   "caloriesOut"=>1188,
+   "distances"=>
+    [{"activity"=>"total", "distance"=>0},
+     {"activity"=>"tracker", "distance"=>0},
+     {"activity"=>"loggedActivities", "distance"=>0},
+     {"activity"=>"veryActive", "distance"=>0},
+     {"activity"=>"moderatelyActive", "distance"=>0},
+     {"activity"=>"lightlyActive", "distance"=>0},
+     {"activity"=>"sedentaryActive", "distance"=>0}],
+   "fairlyActiveMinutes"=>0,
+   "lightlyActiveMinutes"=>0,
+   "marginalCalories"=>0,
+   "sedentaryMinutes"=>1312,
+   "steps"=>30000,
+   "veryActiveMinutes"=>0}}
