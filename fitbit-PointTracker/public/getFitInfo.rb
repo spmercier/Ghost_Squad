@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
- 
-require "fitgem"
-require "pp"
-require "yaml"
+require 'bundler/setup'
+require 'fitgem'
+require 'pp'
+require 'yaml'
  
 # Load the existing yml config
 config = begin
