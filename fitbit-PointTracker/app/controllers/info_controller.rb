@@ -1,5 +1,6 @@
 class InfoController < ApplicationController
   def index
+<<<<<<< HEAD
   	@steps = 0
   	@hasHitSummary = 0
   	File.open("public/user.txt", "r").each_line do |line|
@@ -12,6 +13,13 @@ class InfoController < ApplicationController
 	  		@steps = number[0].to_i
 	  	end
 	  end
+=======
+  	
+	get_Fitbit_info = "/public/getFitInfo.rb"
+	#@output = `./public/getFitInfo.rb`
+	outObject = IO.popen('ruby ./public/getFitInfo.rb > ./public/user.txt')
+  	@output = outObject.readlines
+>>>>>>> origin/Create-User-Code-Authenticate
 
 	end
   end
