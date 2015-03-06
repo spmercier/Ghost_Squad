@@ -4,8 +4,8 @@
  "summary"=>
   {"activeScore"=>-1,
    "activityCalories"=>0,
-   "caloriesBMR"=>1188,
-   "caloriesOut"=>1188,
+   "caloriesBMR"=>1261,
+   "caloriesOut"=>1261,
    "distances"=>
     [{"activity"=>"total", "distance"=>0},
      {"activity"=>"tracker", "distance"=>0},
@@ -17,6 +17,6 @@
    "fairlyActiveMinutes"=>0,
    "lightlyActiveMinutes"=>0,
    "marginalCalories"=>0,
-   "sedentaryMinutes"=>1312,
-   "steps"=>30000,
+   "sedentaryMinutes"=>1392,
+   "steps"=>0,
    "veryActiveMinutes"=>0}}
