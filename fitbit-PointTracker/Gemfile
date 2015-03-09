@@ -44,6 +44,7 @@ group :development, :test do
   
   gem 'fitgem'
   gem 'omniauth-fitbit'
+  gem "twitter-bootstrap-rails"
   
 end
 

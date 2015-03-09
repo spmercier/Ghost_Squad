@@ -1,22 +1,49 @@
 class InfoController < ApplicationController
   def index
   	get_Fitbit_info = "/public/getFitInfo.rb"
-	#@output = `./public/getFitInfo.rb`
 	outObject = IO.popen('ruby ./public/getFitInfo.rb > ./public/user.txt')
+	
+	@points = 0
+  	steps = 0
+  	caloriesBurned = 0
+  	hasHitSummary = 0
 
-  	@steps = 0
-  	@hasHitSummary = 0
+
   	File.open("public/user.txt", "r").each_line do |line|
 	  if line.include? "summary"
-	  	@hasHitSummary = @hasHitSummary + 1
+	  	hasHitSummary = hasHitSummary + 1
 	  end
-	  if @hasHitSummary == 1
+	  if hasHitSummary == 1
 	  	if line.include? "steps"
 	  		number = line.scan(/[0-9]+/)
-	  		@steps = number[0].to_i
-	  	end
-	  end
+	  		steps = number[0].to_i
+	  	elsif line.include? "caloriesBMR"
+	  		number = line.scan(/[0-9]+/)
+	  		caloriesBurned = number[0].to_i
+	  	end #end if
+	  end #end if
+	end #end loop
 
-	end
-  end
-end
+	case steps
+		when 100
+		  @points = @points + 10
+		when 200..600
+		  @points = @points + 40
+		when 601..1000
+		  @points = @points + 100
+		else
+		  @points = @points + 500
+	end #end steps
+	case caloriesBurned
+		when 500
+		  @points = @points + 10
+		when 700..1000
+		  @points = @points + 40
+		when 1001..2000
+		  @points = @points + 100
+		else 
+		  @points = @points + 500
+	end #end caloriesBurned
+
+  end #end index
+end #end controller
