@@ -25,16 +25,20 @@ class InfoController < ApplicationController
 	end #end loop
 
 	case steps
+		when 0
+		@points = @points + 0
 		when 100
 		  @points = @points + 10
 		when 200..600
 		  @points = @points + 40
 		when 601..1000
 		  @points = @points + 100
-		else
+		else 
 		  @points = @points + 500
 	end #end steps
 	case caloriesBurned
+		when 0
+		@points = @points + 0
 		when 500
 		  @points = @points + 10
 		when 700..1000
