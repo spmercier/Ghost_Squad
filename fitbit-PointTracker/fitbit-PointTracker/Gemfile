@@ -43,8 +43,6 @@ group :development, :test do
   gem 'spring'
   
   gem 'fitgem'
-	gem 'devise' 
-	gem 'omniauth'
   gem 'omniauth-fitbit'
   
 end
