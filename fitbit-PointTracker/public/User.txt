@@ -1,22 +1,5 @@
-{"activities"=>[],
- "goals"=>
-  {"activeMinutes"=>30, "caloriesOut"=>2184, "distance"=>5, "steps"=>10000},
- "summary"=>
-  {"activeScore"=>-1,
-   "activityCalories"=>0,
-   "caloriesBMR"=>1149,
-   "caloriesOut"=>1149,
-   "distances"=>
-    [{"activity"=>"total", "distance"=>0},
-     {"activity"=>"tracker", "distance"=>0},
-     {"activity"=>"loggedActivities", "distance"=>0},
-     {"activity"=>"veryActive", "distance"=>0},
-     {"activity"=>"moderatelyActive", "distance"=>0},
-     {"activity"=>"lightlyActive", "distance"=>0},
-     {"activity"=>"sedentaryActive", "distance"=>0}],
-   "fairlyActiveMinutes"=>0,
-   "lightlyActiveMinutes"=>0,
-   "marginalCalories"=>0,
-   "sedentaryMinutes"=>1269,
-   "steps"=>0,
-   "veryActiveMinutes"=>0}}
+{"errors"=>
+  [{"errorType"=>"oauth",
+    "fieldName"=>"oauth_consumer_key",
+    "message"=>"Invalid consumer key: 396c47c207c44832a00ec79a2bfc6d01"}],
+ "success"=>false}
