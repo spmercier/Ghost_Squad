@@ -9,8 +9,40 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+	<div class="container-fluid page">
+	    <header role="banner" class="navbar navbar-fixed-top navbar-inverse">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button data-toggle="collapse-side" data-target=".side-collapse" data-target-2=".side-collapse-container" type="button" class="navbar-toggle pull-left">
+	          	<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+	          </button>
+	          	<!-- <div class="toggle-tasks-standings"></div> -->
+	        </div>
+	        <div class="navbar-inverse side-collapse in">
+	          <nav role="navigation" class="navbar-collapse">
+	            <ul class="nav navbar-nav">
+	              <li><%= link_to "Home", info_index_path %></li>
+	              <li><a href="#">Profile</a></li>
+	              <li><a href="#">Add Friends</a></li>
+	              <li><a href="#">Sync</a></li>
+	              <li><%= link_to "About", info_about_path %></li>
+	            </ul>
+	          </nav>
+	        </div>
+	      </div>
+	    </header>
+	<%= yield %>
+	</div>
 </body>
+<script>
+    $(document).ready(function() {   
+            var sideslider = $('[data-toggle=collapse-side]');
+            var sel = sideslider.attr('data-target');
+            var sel2 = sideslider.attr('data-target-2');
+            sideslider.click(function(event){
+                $(sel).toggleClass('in');
+                $(sel2).toggleClass('out');
+            });
+        });
+</script>
 </html>

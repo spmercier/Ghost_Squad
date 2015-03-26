@@ -10,7 +10,7 @@ html,body{margin: 0; padding: 0;}
 .login-header-container{background: #0090e6; color: #fafafa;}
 .row{margin-left: 0; margin-right: 0;}
 .container-fluid { padding: 0px;}
-.page{ /*margin-top: 50px; */ overflow: hidden}
+.page{ margin-top: 50px; overflow: hidden; height: auto;}
 .navbar-inverse{ background: #0090e6; border: none;}
 .navbar-inverse .navbar-nav > li > a{  color: #fafafa;}
 h1 strong{ font-size: 12px; position: relative;top: -12px;color: #0090e6;}
@@ -34,7 +34,7 @@ p{color: #474747 !important;}
     body { padding-left: 0px;padding-right: 0px;}
     .side-collapse-container{width:100%;position:relative;left:0;transition:left .4s;}
     .side-collapse-container.out{   left:200px;}
-    .side-collapse {top:50px; bottom:0; left:0; width:200px; position:fixed; overflow:hidden;  transition:width .4s;}
+    .side-collapse {top:50px; bottom:0; left:0; width:200px; position:fixed; overflow:hidden;  transition:width .4s; min-height: 2000px; height: 100%;}
     .side-collapse.in {width:0;}
 }
 
