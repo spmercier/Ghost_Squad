@@ -1,4 +1,5 @@
 class InfoController < ApplicationController
+ 
   def index
   	get_Fitbit_info = "/public/getFitInfo.rb"
 	outObject = IO.popen('ruby ./public/getFitInfo.rb > ./public/user.txt')
@@ -50,4 +51,8 @@ class InfoController < ApplicationController
 	end #end caloriesBurned
 
   end #end index
+
+  def about
+  	
+  end
 end #end controller
