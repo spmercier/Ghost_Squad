@@ -16,6 +16,7 @@ html,body{margin: 0; padding: 0;}
 h1 strong{ font-size: 12px; position: relative;top: -12px;color: #0090e6;}
 .custyle {height: 300px; overflow: scroll; margin-top: 40px;}
 .custab{ padding: 5px; margin: 5% 0; transition: 0.5s; }
+.custyle.profile{margin-top: 0px; height: 200px;}
 .custab:hover{ box-shadow: 3px 3px 0px transparent; transition: 0.5s;  }
 .table .heads{background: #474747; color: #fafafa;}
 .heads th{text-align: center}
