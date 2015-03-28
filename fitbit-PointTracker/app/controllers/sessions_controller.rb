@@ -12,8 +12,16 @@ class SessionsController < ApplicationController
   # Log the authorizing user in.
   self.current_user = @auth.user
 
+	@client ||= Fitgem::Client.new(
+		:consumer_key => '17e009f76e454acda410d3dbeb59d047',
+		:consumer_secret => '1db1d74a7ecb4e97aa426fa42126edd1',
+		:token => @auth.token,
+		:secret => @auth.secret,
+		:user_id => @auth.uid,
+		:ssl => true
+	)
   
-  render :text => request.env['omniauth.auth'].inspect
+	render :text => @client.activities_on_date('today') 
 end
 
   def failure
