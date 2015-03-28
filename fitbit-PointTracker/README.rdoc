@@ -1,7 +1,6 @@
 == README
 
-The application currently pulls fitness data from a single fitbit user, 
-and uses that information to display a point value for the user.
+The application currently lets a user login to the fitbit service. To login into fitbit through the app go to /auth/fitbit.
 
-Scores are calculated using number of calories burned and number of steps until 
-fitness challenges can be created.
+
+Scores will be calculated based on numerous fitness activities.
