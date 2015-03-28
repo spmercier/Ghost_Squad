@@ -55,4 +55,8 @@ class InfoController < ApplicationController
   def about
   	
   end
+  def profile
+  		@username = "Patrick Hutfless"
+  		@profilePic = 'http://www.fitbit.com/images/profile/defaultProfile_150_male.gif';
+  end
 end #end controller
