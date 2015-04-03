@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'sessions/about'
   get 'sessions/index'
   get 'sessions/profile'
+  get 'sessions/addfriends'
   
   get   '/login', :to => 'sessions#new', :as => :login
 	match '/auth/fitbit/callback', :to => 'sessions#index' , :via => [:get], :as => 'sessions_create'
