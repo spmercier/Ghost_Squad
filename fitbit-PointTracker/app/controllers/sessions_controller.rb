@@ -2,19 +2,31 @@ class SessionsController < ApplicationController
  def new
  end
 
+ def index
+  @points = 0
+
+ end
+
   def create
-	auth = request.env['omniauth.auth']
-	unless @auth = Authorization.find_from_hash(auth)
-		# Create a new user or add an auth to existing user, depending on
-		# whether there is already a user signed in.
-		@auth = Authorization.create_from_hash(auth)
-	end
-		# Log the authorizing user in.
-		self.current_user = @auth.user
+  	auth = request.env['omniauth.auth']
+  	unless @auth = Authorization.find_from_hash(auth)
+  		# Create a new user or add an auth to existing user, depending on
+  		# whether there is already a user signed in.
+  		@auth = Authorization.create_from_hash(auth)
+  	end
+  		# Log the authorizing user in.
+  		self.current_user = @auth.user
 	end
 
  def failure
  end
+
+  def about 
+  end
+  def profile
+      @username = "Patrick Hutfless"
+      @profilePic = 'http://www.fitbit.com/images/profile/defaultProfile_150_male.gif';
+  end
 
 private
 	def connect
