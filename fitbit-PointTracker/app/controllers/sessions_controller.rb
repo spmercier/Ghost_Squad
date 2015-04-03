@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+@@pic =''
 
  def new
  end
@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
 	end
 	def index
 		auth = request.env['omniauth.auth']
+	
 		unless @auth = Authorization.find_from_hash(auth)
 			# Create a new user or add an auth to existing user, depending on
 			# whether there is already a user signed in.
@@ -43,6 +44,8 @@ class SessionsController < ApplicationController
 			@points += 10000	
 		end
 		
+		@info = get_userInfo(@auth)
+		@@pic = @info['avatar']
 		
 		
 	end
@@ -52,7 +55,7 @@ class SessionsController < ApplicationController
 	
 	def profile
 		@username = "Patrick Hutfless"
-		@profilePic = 'http://www.fitbit.com/images/profile/defaultProfile_150_male.gif';
+		@profilePic = @@pic.to_s
 	end
 
 
