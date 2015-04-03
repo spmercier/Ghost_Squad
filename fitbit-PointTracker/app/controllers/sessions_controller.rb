@@ -38,12 +38,15 @@ end
  def failure
  end
 
-  def about 
-  end
-  def profile
-      @username = "Patrick Hutfless"
-      @profilePic = 'http://www.fitbit.com/images/profile/defaultProfile_150_male.gif';
-  end
+def about 
+end
+def profile
+    @username = "Patrick Hutfless"
+    @profilePic = 'http://www.fitbit.com/images/profile/defaultProfile_150_male.gif';
+end
+def addfriends
+
+end
 
 private
 	def connect(auth)
