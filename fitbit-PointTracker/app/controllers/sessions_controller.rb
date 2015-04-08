@@ -1,27 +1,30 @@
 class SessionsController < ApplicationController
 @@pic =''
-
+@@GlobalAuth
  def new
  end
-
-
-
+ 
 	def create
-
+		auth = request.env['omniauth.auth']
+		
+		unless @auth = Authorization.find_from_hash(auth)
+			# Create a new user or add an auth to existing user, depending on
+			# whether there is already a user signed in.
+			@auth = Authorization.create_from_hash(auth)
+			
+			
+		end
+		@@GlobalAuth ||= @auth
+		redirect_to "/sessions/index"
 	end
 
 	def failure
 	
 	end
 	def index
-		auth = request.env['omniauth.auth']
-	
-		unless @auth = Authorization.find_from_hash(auth)
-			# Create a new user or add an auth to existing user, depending on
-			# whether there is already a user signed in.
-			@auth = Authorization.create_from_hash(auth)
-		end
+		
 		# Log the authorizing user in.
+		@auth = @@GlobalAuth
 		self.current_user = @auth.user
 		@activities = get_activities(@auth)
 		@steps1000 = false
