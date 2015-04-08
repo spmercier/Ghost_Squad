@@ -62,6 +62,17 @@ class SessionsController < ApplicationController
 	end
 
 
+def about 
+end
+def profile
+    @username = "Patrick Hutfless"
+    @profilePic = 'http://www.fitbit.com/images/profile/defaultProfile_150_male.gif';
+end
+def addfriends
+
+end
+
+
 	def connect(auth)
 		@client ||= Fitgem::Client.new(
 			:consumer_key => '17e009f76e454acda410d3dbeb59d047',
