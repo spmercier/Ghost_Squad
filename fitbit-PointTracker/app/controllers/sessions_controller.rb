@@ -1,42 +1,66 @@
 class SessionsController < ApplicationController
+@@pic =''
+@@GlobalAuth
  def new
  end
+ 
+	def create
+		auth = request.env['omniauth.auth']
+		
+		unless @auth = Authorization.find_from_hash(auth)
+			# Create a new user or add an auth to existing user, depending on
+			# whether there is already a user signed in.
+			@auth = Authorization.create_from_hash(auth)
+			
+			
+		end
+		@@GlobalAuth ||= @auth
+		redirect_to "/sessions/index"
+	end
 
- def index
-  
-  
-  @points = 0
- end
-
-  def create
-  	auth = request.env['omniauth.auth']
-	unless @auth = Authorization.find_from_hash(auth)
-  		# Create a new user or add an auth to existing user, depending on
-  		# whether there is already a user signed in.
-  		@auth = Authorization.create_from_hash(auth)
-  	end
-  	# Log the authorizing user in.
-  	self.current_user = @auth.user
-	@activities = get_activities(@auth)
-	@steps1000 = false
-	@steps5000 = false
-	@steps10000 = false
+	def failure
 	
-	@steps = @activities['steps']
+	end
+	def index
+		
+		# Log the authorizing user in.
+		@auth = @@GlobalAuth
+		self.current_user = @auth.user
+		@activities = get_activities(@auth)
+		@steps1000 = false
+		@steps5000 = false
+		@steps10000 = false
+		@points = 0
+		@steps = 0;
+		@steps += @activities['summary']['steps'].to_i
 	
-	if steps>1000
-		steps1000 = true
+		if @steps>1000
+			@steps1000 = true
+			@points += 1000
+		end
+		if @steps>5000
+			@steps5000 = true
+			@points += 5000
+		end
+		if @steps>10000
+			@steps10000 = true
+			@points += 10000	
+		end
+		
+		@info = get_userInfo(@auth)
+		@@pic = @info['avatar']
+		
+		
 	end
-	if steps>5000
-		steps5000 = true
+	
+	def about 
 	end
-	if steps>10000
-		steps10000 = true
+	
+	def profile
+		@username = "Patrick Hutfless"
+		@profilePic = @@pic.to_s
 	end
-end
 
- def failure
- end
 
 def about 
 end
@@ -48,7 +72,7 @@ def addfriends
 
 end
 
-private
+
 	def connect(auth)
 		@client ||= Fitgem::Client.new(
 			:consumer_key => '17e009f76e454acda410d3dbeb59d047',
@@ -60,15 +84,15 @@ private
 		)
 		return @client
 	end 
-
+private
 	def get_activities(auth)
 		@client = self.connect(auth)
-		@activities = client.activities_on_date('today')
-		return activities
+		@activities = @client.activities_on_date('today')
+		return @activities
 	end
 	def get_userInfo(auth)
 		@client = self.connect(auth)
-		@userinfo = client.user_info['user']
-		return userinfo
+		@userinfo = @client.user_info['user']
+		return @userinfo
 	end
 end
