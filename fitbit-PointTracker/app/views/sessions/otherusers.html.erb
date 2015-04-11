@@ -9,21 +9,15 @@
             <div class="text-center"><h3>Users</h3></div>
                 <tr style="background: #474747; color: #fafafa;">
                     <th>Name</th>
-                    <th>Add Friend</th>
+                    <th>Points</th>
                 </tr>
             </thead>
+            <% @users.each do |user| %>
                     <tr>
-                        <td>Jimmy</td>
-                        <td><a>Add</a></td>
+                        <td><%= user.name %></td>
+                        <td><%= user.points %></td>
                     </tr>
-                    <tr>
-                        <td>Tommy</td>
-                        <td><a>Add</a></td>
-                    </tr>
-                    <tr>
-                        <td>Jamaal</td>
-                        <td><a>Add</a></td>
-                    </tr>
+            <% end %>
             </table>
      </div>
  </div>
