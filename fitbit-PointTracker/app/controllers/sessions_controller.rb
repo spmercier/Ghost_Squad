@@ -22,11 +22,12 @@ class SessionsController < ApplicationController
 	
 	end
 	def index
-		
+
 		# Log the authorizing user in.
 		auth = @@GlobalAuth
+		info = get_userInfo(auth)
+
 		self.current_user = auth.user
-		#@database_user = User.where(Authorization[:uid] => auth['uid'])
 		activities = get_activities(auth)
 		steps1000 = false
 		steps5000 = false
@@ -47,11 +48,9 @@ class SessionsController < ApplicationController
 			steps10000 = true
 			points += 10000	
 		end
-		
-		info = get_userInfo(auth)
-		@@pic = info['avatar']
-		self.current_user[:points] = points
-		@points = self.current_user[:points]
+
+		@user = User.find_by(name: info['fullName']).update_attribute(:points, points)
+		@points = points
 		
 	end
 	
@@ -62,11 +61,14 @@ class SessionsController < ApplicationController
 		info = get_userInfo(@@GlobalAuth)
 		@pic = info['avatar']
 		@name = info['fullName']
-		@points = @@GlobalAuth.user[:points]
+		@user = User.find_by(name: info['fullName'])
+		@points = @user.points
 	end
 
 	def otherusers
-		@users = User.all
+		info = get_userInfo(@@GlobalAuth)
+		name = info['fullName']
+		@users = User.where.not(name: name)
 	end
 	def connect(auth)
 			client ||= Fitgem::Client.new(
