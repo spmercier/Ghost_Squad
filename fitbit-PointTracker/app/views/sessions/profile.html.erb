@@ -1,35 +1,11 @@
 <div class="container side-collapse-container">
     <div class="row text-center picture">
-    			<div style="margin-top: 40px;"><div class="profile-image"><%= image_tag(@profilePic) %></div></div>
+    			<div style="margin-top: 40px;"><div class="profile-image"><%= image_tag(@pic) %></div></div>
     </div>
     <div class="row name text-center">
-    	<h1><%=@username%></h1>
+    	<h1><%=@name%></h1>
     </div>
      <div class="row text-center custyle profile">
-            <table class="table table-striped custab">
-            <thead>
-            <div class="text-center"><h3>Tasks</h3></div>
-                <tr class="heads">
-                    <th>Date</th>
-                    <th>Task</th>
-                    <th>Points</th>
-                </tr>
-            </thead>
-                    <tr>
-                        <td>dd/mm/yy</td>
-                        <td>Run 1 Mile</td>
-                        <td>100pts</td>
-                    </tr>
-                    <tr>
-                        <td>dd/mm/yy</td>
-                        <td>Task</td>
-                        <td>200pts</td>
-                    </tr>
-                    <tr>
-                        <td>dd/mm/yy</td>
-                        <td>Task</td>
-                        <td>50pts</td>
-                    </tr>
-            </table>
+            <h2 class="points">Points: <%=@points %></h2>
      </div>
  </div>
