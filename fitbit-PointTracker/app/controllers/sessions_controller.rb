@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
 	
 	end
 	def index
-
+		@taskstandings = true
 		# Log the authorizing user in.
 		auth = @@GlobalAuth
 		info = get_userInfo(auth)
@@ -32,26 +32,28 @@ class SessionsController < ApplicationController
 		steps1000 = false
 		steps5000 = false
 		steps10000 = false
-		points = 0
+		pointsum = 0
 		steps = 0
 		steps += activities['summary']['steps'].to_i
 	
 		if steps>1000
 			steps1000 = true
-			points += 1000
+			pointsum += 1000
 		end
 		if steps>5000
 			steps5000 = true
-			points += 5000
+			pointsum += 5000
 		end
 		if steps>10000
 			steps10000 = true
-			points += 10000	
+			pointsum += 10000	
 		end
 
-		@user = User.find_by(name: info['fullName']).update_attribute(:points, points)
-		@points = points
-		
+		@user = User.find_by(name: info['fullName']).update_attribute(:points, pointsum)
+		@points = pointsum
+
+		@users = User.order(points: :desc).limit(10)
+		@count = 1
 	end
 	
 	def about 
@@ -63,6 +65,18 @@ class SessionsController < ApplicationController
 		@name = info['fullName']
 		@user = User.find_by(name: info['fullName'])
 		@points = @user.points
+
+		users = User.order(points: :desc)
+		count = 1
+		@standing = 20
+
+		users.each do |user|
+			if user.name == @name
+ 				@standing = count
+			end
+
+			count = count + 1
+		end
 	end
 
 	def otherusers

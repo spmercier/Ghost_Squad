@@ -20,10 +20,11 @@ h1 strong{ font-size: 12px; position: relative;top: -12px;color: #0090e6;}
 .custab:hover{ box-shadow: 3px 3px 0px transparent; transition: 0.5s;  }
 .table .heads{background: #474747; color: #fafafa;}
 .heads th{text-align: center}
+tr td{color: #474747 !important;}
 .points{color: #2ecc71;}
 .toggle-tasks-standings{ cursor: pointer; float: right; background: #474747; color:#fafafa; margin-right: 10px;  margin-top: 5px; margin-bottom: 5px; padding:10px 10px;}
-.standings{ position: relative; transition: 1s all ease-in-out;}
-.tasks{  position: relative; transition: 1s all ease-in-out;}
+.standings{ opacity: 0; left: 2000px; position: relative; transition: 1s all ease-in-out;}
+.tasks{  opacity:0; left: 2000px; position: relative; transition: 1s all ease-in-out;}
 .standings.in{opacity: 1; left: 0;}
 .tasks.in{ left: 0; opacity: 1;}
 .profile-image{ width: 200px; height: 200px; border-radius: 100px; text-align: center; margin: 0 auto;}
@@ -41,4 +42,3 @@ p{color: #474747 !important;}
     .side-collapse {top:50px; bottom:0; left:0; width:200px; position:fixed; overflow:hidden;  transition:width .4s; min-height: 2000px; height: 100%;}
     .side-collapse.in {width:0;}
 }
-
