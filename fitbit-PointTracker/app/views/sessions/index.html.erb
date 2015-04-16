@@ -4,6 +4,27 @@
         <h1>You Have</h1>
         <h1 class="points"><%=@points.inspect%><strong>pts</strong></h1>
       </div>
+    <div class="row text-center custyle standings in">
+    <table class="table table-striped custab">
+    <thead>
+    <div class="text-center"><h3>Top 10 Users</h3></div>
+        <tr style="background: #474747; color: #fafafa;">
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Points</th>
+        </tr>
+    </thead>
+            <tr>
+            <% @users.each do |user| %>
+                    <tr>
+                        <td><%= @count %> </td>
+                        <td><%= user.name %></td>
+                        <td><%= user.points %></td>
+                    </tr>
+                    <% @count += 1 %>
+            <% end %>
+    </table>
+  </div>
        <div class="row text-center custyle tasks">
        	 <div class="text-center"><h3>Tasks</h3></div>
             <table class="table table-striped custab">
@@ -29,30 +50,7 @@
                         <td>Walk 3000 steps</td>
                         <td>5,000,000pts</td>
                     </tr>
-                    <tr>
-                        <td>Walk 3000 steps</td>
-                        <td>5,000,000pts</td>
-                    </tr>
-                    <tr>
-                        <td>Walk 3000 steps</td>
-                        <td>5,000,000pts</td>
-                    </tr>
-                    <tr>
-                        <td>Walk 3000 steps</td>
-                        <td>5,000,000pts</td>
-                    </tr>
-                    <tr>
-                        <td>Walk 3000 steps</td>
-                        <td>5,000,000pts</td>
-                    </tr>
-                    <tr>
-                        <td>Walk 3000 steps</td>
-                        <td>5,000,000pts</td>
-                    </tr>
-                     <tr>
-                        <td>Sexy As Patrick</td>
-                        <td>5,000,000pts</td>
-                    </tr>
+
             </table>
           </div>
     </div>

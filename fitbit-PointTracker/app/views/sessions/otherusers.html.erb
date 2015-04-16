@@ -1,10 +1,10 @@
   <div class="container side-collapse-container">
     <div class="row name text-center">
-      <h1>Add Friends</h1>
-      <div class="input-wrap"><input type="text" placeholder="Jimmy" /></div>
+      <h1>Search Users</h1>
+      <div class="input-wrap"><input type="text" placeholder="Jimmy" id="search" /></div>
     </div>
      <div class="row text-center custyle points">
-            <table class="table table-striped custab">
+            <table id="table" class="table table-striped custab">
             <thead>
             <div class="text-center"><h3>Users</h3></div>
                 <tr style="background: #474747; color: #fafafa;">
@@ -12,12 +12,29 @@
                     <th>Points</th>
                 </tr>
             </thead>
+            <tbody>
             <% @users.each do |user| %>
                     <tr>
                         <td><%= user.name %></td>
                         <td><%= user.points %></td>
                     </tr>
             <% end %>
+          </tbody>
             </table>
      </div>
  </div>
+ <script type="text/javascript">
+ $(document).ready(function(){
+    $("#search").keyup(function(){
+        _this = this;
+        // Show only matching TR, hide rest of them
+        $.each($("#table tbody").find("tr"), function() {
+            console.log($(this).text());
+            if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) == -1)
+               $(this).hide();
+            else
+                 $(this).show();                
+        });
+    }); 
+ });
+ </script>
