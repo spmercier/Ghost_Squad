@@ -16,7 +16,9 @@
 	          <button data-toggle="collapse-side" data-target=".side-collapse" data-target-2=".side-collapse-container" type="button" class="navbar-toggle pull-left">
 	          	<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
 	          </button>
-	          	<!-- <div class="toggle-tasks-standings"></div> -->
+	          <% if @taskstandings %>
+				<div class="toggle-tasks-standings"></div> 
+				<% end %>
 	        </div>
 	        <div class="navbar-inverse side-collapse in">
 	          <nav role="navigation" class="navbar-collapse">
@@ -41,6 +43,23 @@
             sideslider.click(function(event){
                 $(sel).toggleClass('in');
                 $(sel2).toggleClass('out');
+            });
+            $('.toggle-tasks-standings').html('Tasks');
+            var standings_height = $('.standings').height();
+            $('.tasks').css({
+              "margin-top" : standings_height - (2 * standings_height)
+            });
+            $('.toggle-tasks-standings').click(function(){
+                if($('.standings').hasClass('in')){
+                  $('.standings').removeClass('in');
+                  $('.tasks').addClass('in');
+                  $('.toggle-tasks-standings').html('Standings');
+                }
+                else{
+                  $('.tasks').removeClass('in');
+                  $('.standings').addClass('in');
+                  $('.toggle-tasks-standings').html('Tasks');
+                }
             });
         });
 </script>
