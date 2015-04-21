@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
 
 	
-  root 'sessions#index'
+  root 'sessions#splash'
 
   get 'sessions/about'
   get 'sessions/index'

@@ -17,11 +17,15 @@ class SessionsController < ApplicationController
 		@@GlobalAuth ||= @auth
 		redirect_to "/sessions/index"
 	end
+	def splash
+		@isNotSplash = false
+	end
 
 	def failure
 	
 	end
 	def index
+		@isNotSplash = true
 		@taskstandings = true
 		# Log the authorizing user in.
 		auth = @@GlobalAuth
@@ -34,20 +38,22 @@ class SessionsController < ApplicationController
 		steps10000 = false
 		pointsum = 0
 		steps = 0
+		veryActiveMinutes = activities['summary']['veryActiveMinutes'].to_i
 		steps += activities['summary']['steps'].to_i
 	
 		if steps>1000
 			steps1000 = true
-			pointsum += 1000
+			pointsum += 100
 		end
 		if steps>5000
 			steps5000 = true
-			pointsum += 5000
+			pointsum += 500
 		end
 		if steps>10000
 			steps10000 = true
-			pointsum += 10000	
+			pointsum += 1000	
 		end
+
 
 		@user = User.find_by(name: info['fullName']).update_attribute(:points, pointsum)
 		@points = pointsum
@@ -57,9 +63,11 @@ class SessionsController < ApplicationController
 	end
 	
 	def about 
+		@isNotSplash = true
 	end
 	
 	def profile
+		@isNotSplash = true
 		info = get_userInfo(@@GlobalAuth)
 		@pic = info['avatar']
 		@name = info['fullName']
@@ -80,6 +88,7 @@ class SessionsController < ApplicationController
 	end
 
 	def otherusers
+		@isNotSplash = true
 		info = get_userInfo(@@GlobalAuth)
 		name = info['fullName']
 		@users = User.where.not(name: name)
