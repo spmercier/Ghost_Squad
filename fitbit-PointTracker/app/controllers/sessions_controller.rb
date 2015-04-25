@@ -33,26 +33,50 @@ class SessionsController < ApplicationController
 
 		self.current_user = auth.user
 		activities = get_activities(auth)
-		steps1000 = false
-		steps5000 = false
-		steps10000 = false
 		pointsum = 0
 		steps = 0
-		veryActiveMinutes = activities['summary']['veryActiveMinutes'].to_i
+		lightlyActive = activities['summary']['distances'][5]['distance'].to_i
+		moderatlyActive = activities['summary']['distances'][4]['distance'].to_i
+		veryActive = activities['summary']['distances'][3]['distance'].to_i
 		steps += activities['summary']['steps'].to_i
 	
 		if steps>1000
-			steps1000 = true
 			pointsum += 100
 		end
 		if steps>5000
-			steps5000 = true
 			pointsum += 500
 		end
 		if steps>10000
-			steps10000 = true
 			pointsum += 1000	
 		end
+		if lightlyActive > 1
+			pointsum += 50
+		end
+		if lightlyActive > 5
+			pointsum += 250
+		end
+		if lightlyActive > 10
+			pointsum += 500
+		end
+		if moderatlyActive > 1
+			pointsum += 100
+		end
+		if moderatlyActive > 5
+			pointsum += 500
+		end
+		if moderatlyActive > 5
+			pointsum += 1000
+		end
+		if veryActive > 1
+			pointsum += 200
+		end
+		if veryActive > 5
+			pointsum += 1000
+		end
+		if veryActive > 10
+			pointsum += 2000
+		end
+
 
 
 		@user = User.find_by(name: info['fullName']).update_attribute(:points, pointsum)
